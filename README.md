@@ -1,5 +1,5 @@
 # ojetrocketsource
-oracle jet rocket source by madhusudhan rao
+oracle jet rocket source by Madhusudhan Rao
 
 Install OJET CLI -> refer this https://github.com/oracle/ojet-cli
 
