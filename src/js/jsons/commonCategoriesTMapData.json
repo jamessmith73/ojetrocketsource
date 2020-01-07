@@ -1,0 +1,82 @@
+  [
+    {
+      "location": "AL",
+      "category": "Initial"
+    },
+    {
+      "location": "FL",
+      "category": "Qualification"
+    },
+    {
+      "location": "TX",
+      "category": "Meeting"
+    },
+    {
+      "location": "MS",
+      "category": "Proposal"
+    },
+    {
+      "location": "OH",
+      "category": "Close"
+    },
+    {
+      "location": "MA",
+      "category": "Initial"
+    },
+    {
+      "location": "RI",
+      "category": "Qualification"
+    },
+    {
+      "location": "NH",
+      "category": "Meeting"
+    },
+    {
+      "location": "OR",
+      "category": "Proposal"
+    },
+    {
+      "location": "WA",
+      "category": "Close"
+    },
+    {
+      "location": "UT",
+      "category": "Initial"
+    },
+    {
+      "location": "CO",
+      "category": "Qualification"
+    },
+    {
+      "location": "SD",
+      "category": "Meeting"
+    },
+    {
+      "location": "IA",
+      "category": "Proposal"
+    },
+    {
+      "location": "MO",
+      "category": "Close"
+    },
+    {
+      "location": "AR",
+      "category": "Initial"
+    },
+    {
+      "location": "PA",
+      "category": "Qualification"
+    },
+    {
+      "location": "WV",
+      "category": "Meeting"
+    },
+    {
+      "location": "NY",
+      "category": "Proposal"
+    },
+    {
+      "location": "ME",
+      "category": "Close"
+    }
+  ]

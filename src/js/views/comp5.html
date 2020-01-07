@@ -1,0 +1,128 @@
+ <style>
+   .demo-chart-row-container {
+    padding: 0;
+  }
+  
+  .demo-chart-task {
+    position: relative;
+    height: 100%;
+  }
+  
+  .demo-task-item {
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .demo-task-bar {
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), #237bb1;
+  }
+  
+  .demo-progress-bar {
+    background: #237bb1;
+  }
+  
+  html[dir="ltr"] .demo-task-label {
+    padding-left: 5px;
+  }
+  
+  html[dir="rtl"] .demo-task-label {
+    padding-right: 5px;
+  }
+ </style>
+ 
+ <div id="sampleDemo" style="" class="demo-padding demo-container">
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+                  
+          
+          
+          <oj-data-grid id="datagrid"
+              style="width:100%;height:350px;max-width:910px;"
+              aria-label="Data Grid Time Axis Stamping Demo"
+              data="[[dataSource]]"
+              header.column.renderer="[[KnockoutTemplateUtils.getRenderer('header_template')]]"
+              header.column.sortable="[[columnHeaderSortable]]"
+              header.column.style="[[columnHeaderStyle]]"
+              cell.renderer="[[KnockoutTemplateUtils.getRenderer('cell_template')]]"
+              cell.class-name="[[cellClassName]]">
+          </oj-data-grid>
+          
+          <script type="text/html" id="header_template">
+              <!-- ko if: $context.key=='name' -->
+                  <span class="oj-datagrid-header-cell-text"
+                      data-bind="text: 'Task Name'"></span>
+              <!-- /ko -->
+              <!-- ko if: $context.key=='start' -->
+                  <span class="oj-datagrid-header-cell-text"
+                      data-bind="text: 'Start Date'"></span>
+              <!-- /ko -->
+              <!-- ko if: $context.key=='end' -->
+                  <span class="oj-datagrid-header-cell-text"
+                      data-bind="text: 'End Date'"></span>
+              <!-- /ko -->
+              <!-- ko if: $context.key=='description' -->
+                <div id="timeAxis" style="width:100%">
+                  <oj-time-axis id="majorAxis"
+                      scale="months"
+                      start="[[$parent.projectStartDate]]"
+                      end="[[$parent.projectEndDate]]"
+                      style="height:30px" aria-hidden="true">
+                  </oj-time-axis>
+                  <oj-time-axis id="minorAxis"
+                      scale="weeks"
+                      start="[[$parent.projectStartDate]]"
+                      end="[[$parent.projectEndDate]]"
+                      style="height:30px" aria-hidden="true">
+                  </oj-time-axis>
+                </div>
+              <!-- /ko -->
+          </script>
+          
+          <script type="text/html" id="cell_template">
+              <!-- ko if: $context.keys.column=='name' -->
+                  <span class="oj-datagrid-cell-text"
+                      data-bind="text: $context.data"></span>
+              <!-- /ko -->
+              <!-- ko if: $context.keys.column=='start' || $context.keys.column=='end'-->
+                  <span class="oj-datagrid-cell-text"
+                      data-bind="text: $parent.dateConverterShort.format($context.data)">
+                  </span>
+              <!-- /ko -->
+              <!-- ko if: $context.keys.column=='description' -->
+                  <div class="demo-chart-task" style="width:100%"
+                       data-bind="style: { left: $parent.isRTL ? 0 : $parent.getPosition($context.indexes.row, 'start') + 'px',
+                                           right: $parent.isRTL ? $parent.getPosition($context.indexes.row, 'start') + 'px' : 0 },
+                                  attr: { 'id': $parent.getId($context.indexes.row),
+                                          'aria-labelledby': $parent.getId($context.indexes.row) + '_label' }">
+                    <div class="demo-task-item demo-task-bar" role="img"
+                         data-bind="style: { width: $parent.getLength($context.indexes.row, 'start', 'end') + 'px' },
+                                    attr: { 'aria-label': $parent.getAriaLabel($context.indexes.row) }">
+                    </div>
+                    <div class="demo-task-item demo-progress-bar" role="img"
+                         data-bind="style: { width: $parent.getLength($context.indexes.row, 'start', 'progress') + 'px' }">
+                    </div>
+                    <div class="demo-task-item demo-task-label"
+                         data-bind="style: { left: $parent.isRTL ? 0 : $parent.getLength($context.indexes.row, 'start', 'end') + 'px',
+                                             right: $parent.isRTL ? $parent.getLength($context.indexes.row, 'start', 'end') + 'px' : 0 },
+                                    attr: { 'id': $parent.getId($context.indexes.row) + '_label' }">
+                      <span data-bind="text: $context.data + '&nbsp'"></span>
+                      <span data-bind="text: $parent.getProgress($context.indexes.row) + '%'"></span>
+                    </div>
+                  </div>
+              <!-- /ko -->
+          </script>
+          
+          
+          
+          
+          
+        </div>
+      </div>
+
+
+<br/><br/> 
+<a href='https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html?component=timeAxis&demo=stampDataGrid' target='_new'>
+    Time Axis - GridView
+</a>
+      

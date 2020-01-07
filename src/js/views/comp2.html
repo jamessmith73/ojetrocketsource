@@ -1,0 +1,229 @@
+<div id="sampleDemo" style="" class="demo-padding demo-container">
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+                  
+          <div id='dvt-container'>
+              <oj-legend id="legend1"
+                aria-controls="thematicMap1 sunburst1 treemap1 bubbleChart1 barChart1 diagram1 nBox1 tagCloud1"
+                orientation="horizontal"
+                data="[[categoryDataProvider]]"
+                halign="center" valign="middle"
+                hidden-categories="{{hiddenCategoriesValue}}"
+                hide-and-show-behavior="on"
+                style="width:100%;height:60px;">
+                <template slot="itemTemplate">
+                  <oj-legend-item
+                    text="[[$current.data.series]]"
+                    color="[[colorHandler.getValue($current.data.series)]]"
+                    short-desc = "[['Filter: ' + $current.data.series]]"
+                    categories="[[[$current.data.series]]]">
+                  </oj-legend-item>
+                </template>
+              </oj-legend>
+              <div class="oj-flex">
+                  <div class="oj-flex-item oj-lg-6">
+                    <oj-thematic-map id="thematicMap1"
+                      animation-on-display="auto"
+                      animation-on-data-change="auto"
+                      area-data="[[tmapDataProvider]]"
+                      map-provider="[[mapProvider]]"
+                      hidden-categories="{{hiddenCategoriesValue}}"
+                      style="width:100%;height:150px;float:left;">
+                      <template slot="areaTemplate" data-oj-as="area">
+                        <oj-thematic-map-area 
+                          color="[[colorHandler.getValue(area.data.category)]]" 
+                          short-desc="[[area.data.category]]"
+                          categories="[[ [area.data.category] ]]"
+                          location="[[area.data.location]]">
+                        </oj-thematic-map-area>
+                      </template>
+                    </oj-thematic-map>
+                  </div>
+                  <div class="oj-flex-item oj-lg-6">
+                      <oj-sunburst id="sunburst1"
+                        animation-on-display="auto"
+                        animation-on-data-change="auto"
+                        hidden-categories="{{hiddenCategoriesValue}}"
+                        selection-mode="none"
+                        data="[[treeDataProvider]]"
+                        node-defaults.label-display="rotated"
+                        style="width:100%;height:150px;float:left;">
+                        <template slot='nodeTemplate'>
+                          <oj-sunburst-node
+                            label="[[$current.data.label]]"
+                            value="[[$current.data.value]]"
+                            categories="[[ [$current.data.label] ]]"
+                            short-desc="[[$current.data.label + ': ' + $current.data.value]]"
+                            color="[[colorHandler.getValue($current.data.label)]]">
+                          </oj-sunburst-node>
+                        </template>
+                      </oj-sunburst>
+                  </div>
+              </div>
+              <div class="oj-flex">
+                  <div class="oj-flex-item oj-lg-6">
+                      <oj-treemap id="treemap1"
+                        animation-on-display="auto"
+                        animation-on-data-change="auto"
+                        hidden-categories="{{hiddenCategoriesValue}}"
+                        selection-mode="none"
+                        data="[[treeDataProvider]]"
+                        style="width:100%;height:150px;float:left;">
+                        <template slot='nodeTemplate'>
+                          <oj-treemap-node
+                            label="[[$current.data.label]]"
+                            value="[[$current.data.value]]"
+                            categories="[[ [$current.data.label] ]]"
+                            short-desc="[[$current.data.label + ': ' + $current.data.value]]"
+                            color="[[colorHandler.getValue($current.data.label)]]">
+                          </oj-treemap-node>
+                        </template>
+                      </oj-treemap>
+                  </div>
+                  <div class="oj-flex-item oj-lg-6">
+                      <oj-chart id="bubbleChart1"
+                        type="bubble"
+                        data="[[bubbleDataProvider]]"
+                        animation-on-display="auto"
+                        animation-on-data-change="auto"
+                        hidden-categories="{{hiddenCategoriesValue}}"
+                        legend.rendered="off"
+                        style="width:100%;height:150px;float:left;">
+                        <template slot="itemTemplate" data-oj-as="item">
+                          <oj-chart-item 
+                              x="[[item.data.x]]" 
+                              y="[[item.data.y]]" 
+                              z="[[item.data.z]]" 
+                              group-id="[[ [item.data.group] ]]" 
+                              categories="[[ [item.data.series] ]]"
+                              series-id="[[item.data.series]]">
+                          </oj-chart-item>
+                      </template>
+                      </oj-chart>
+                  </div>
+              </div>
+              <div class="oj-flex">
+                  <div class="oj-flex-item oj-lg-6">
+                      <oj-chart id="barChart"
+                        type="bar"
+                        data="[[chartDataProvider]]"
+                        animation-on-display="auto"
+                        animation-on-data-change="auto"
+                        hidden-categories="{{hiddenCategoriesValue}}"
+                        legend.rendered="off"
+                        style="width:100%;height:150px;float:left;">
+                        <template slot="itemTemplate" data-oj-as="item">
+                          <oj-chart-item 
+                              value="[[item.data.value]]" 
+                              categories="[[ [item.data.series] ]]"
+                              group-id="[[ [item.data.group] ]]" 
+                              series-id="[[item.data.series]]">
+                          </oj-chart-item>
+                      </template>
+                      </oj-chart>
+                  </div>
+                  <div class="oj-flex-item oj-lg-6">
+                      <oj-diagram id="diagram1"
+                        layout="[[layoutFunc]]"
+                        animation-on-display="auto"
+                        animation-on-data-change="auto"
+                        hidden-categories="{{hiddenCategoriesValue}}"
+                        node-data="[[nodeDataProvider]]"
+                        link-data="[[linkDataProvider]]"
+                        style="width:100%;height:150px;float:left;">
+                        <template slot='nodeTemplate' data-oj-as='node'>
+                          <oj-diagram-node 
+                            label="[[node.data.category]]"
+                            short-desc="[[node.data.category]]"
+                            icon.color="[[colorHandler.getValue(node.data.category)]]"
+                            categories="[[ [node.data.category] ]]"
+                            icon.width='30' 
+                            icon.height='30'>
+                          </oj-diagram-node>
+                        </template>
+                        <template slot='linkTemplate' data-oj-as='link'>
+                          <oj-diagram-link
+                            start-node="[[link.data.startNode]]" 
+                            end-node="[[link.data.endNode]]"
+                            color="[[colorHandler.getValue(link.data.category)]]"
+                            categories="[[ [link.data.category] ]]"
+                            short-desc="[[getLinkDescription(link.index)]]"
+                            start-connector-type='none'
+                            end-connector-type='arrowConcave'>
+                          </oj-diagram-link>
+                        </template>
+                      </oj-diagram>
+                  </div>
+              </div>
+              <div class="oj-flex">
+                  <div class="oj-flex-item oj-lg-6">
+                      <oj-n-box id="nBox1"
+                        animation-on-display="auto"
+                        animation-on-data-change="auto"
+                        hidden-categories="{{hiddenCategoriesValue}}"
+                        data="[[nboxDataProvider]]"
+                        rows="[[rowData]]" 
+                        columns="[[columnData]]"
+                        cells="[[cellData]]"
+                        style="width:100%;height:150px;float:left;">
+                        <template slot="nodeTemplate">
+                          <oj-n-box-node
+                            label="[['Node ' + $current.data.id]]"
+                            row="[[$current.data.row]]"
+                            column="[[$current.data.column]]"
+                            short-desc="[['Node ' + $current.data.id]]"
+                            categories="[[ [$current.data.category] ]]"
+                            group-category="[[$current.data.category]]"
+                            color="[[colorHandler.getValue($current.data.category)]]"
+                            icon.shape="human">
+                          </oj-n-box-node>
+                        </template>
+                      </oj-n-box>
+                  </div>
+                  <div class="oj-flex-item oj-lg-6">
+                      <oj-tag-cloud id="tagCloud1"
+                        animation-on-display="auto"
+                        animation-on-data-change="auto"
+                        hidden-categories="{{hiddenCategoriesValue}}"
+                        data="[[categoryDataProvider]]"
+                        style="width:100%;height:150px;float:left;">
+                        <template slot="itemTemplate" data-oj-as="item">
+                          <oj-tag-cloud-item 
+                            label="[[item.data.series]]"
+                            value="[[item.data.value]]"
+                            color="[[colorHandler.getValue(item.data.series)]]"
+                            categories="[[ [item.data.series] ]]"
+                            short-desc="[[item.data.series]]">
+                          </oj-tag-cloud-item>
+                        </template>
+                      </oj-tag-cloud>
+                  </div>
+              </div>
+              <div class="oj-flex">
+                  <div class="oj-flex-item oj-lg-6">
+                      <oj-picto-chart id="picto1"
+                        animation-on-display="auto"
+                        animation-on-data-change="auto"
+                        hidden-categories="{{hiddenCategoriesValue}}"
+                        data="[[categoryDataProvider]]"
+                        style="float:left;">
+                        <template slot="itemTemplate" data-oj-as="item">
+                          <oj-picto-chart-item 
+                            name="[[item.data.series]]" 
+                            count="[[Math.floor(item.data.value/5)]]" 
+                            categories="[[ [item.data.series] ]]"
+                            color="[[colorHandler.getValue(item.data.series)]]">
+                          </oj-picto-chart-item>
+                        </template>
+                      </oj-picto-chart>
+                  </div>
+              </div>
+          </div>
+          
+          
+          
+          
+        </div>
+      </div>
+ 
+<br/><br/> 
+<a href='https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html?component=dataVisualizations&demo=filtering' target='_new'>Associated Components</a>

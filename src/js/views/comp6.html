@@ -1,0 +1,72 @@
+<div id="container">
+        <div class="demo-flex-display">
+            <div class="oj-flex">
+            <div class="oj-flex-item">
+
+<div id="sampleDemo" style="" class="demo-padding demo-container">
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+                  
+          <oj-table id="table" aria-label="Tasks Table" 
+                    data="[[dataProvider]]" 
+                    row-renderer='[[KnockoutTemplateUtils.getRenderer("row_template", true)]]'
+                    columns='[{"headerText": "Task Name", "sortProperty": "name"},
+                    {"headerText": "Resource", "sortProperty": "resource"},
+                    {"headerText": "Start Date", "sortProperty": "start"},
+                    {"headerText": "End Date", "sortProperty": "end"}]'>
+          </oj-table>
+          
+          <script type="text/html" id="row_template">
+            <tr>
+              <!-- ko if: $context.rowContext.treeDepth === 0 -->
+                <td>
+                  <oj-row-expander context="[[$context.rowContext]]"></oj-row-expander>
+                  <span><oj-bind-text value="[[$context.data.attr.name]]"></oj-bind-text></span>
+                </td>
+                <td>
+                  <span><oj-bind-text value="[[$context.data.attr.resource]]"></oj-bind-text></span>
+                </td>
+                <td>
+                  <span><oj-bind-text value="[[$context.data.attr.start]]"></oj-bind-text></span>
+                </td>
+                <td>
+                  <span><oj-bind-text value="[[$context.data.attr.end]]"></oj-bind-text></span>
+                </td>
+              <!-- /ko -->
+              <!-- ko if: $context.rowContext.treeDepth === 1 -->
+                <td colspan="1">
+                  <span><oj-bind-text value="[[$context.data.attr.detail]]"></oj-bind-text></span>
+                </td>
+                <td colspan="3">
+                  <oj-chart type='pie'
+                            data-bind="attr: {series: JSON.stringify([{name: 'Complete', items: [attr.complete]},
+                                                                      {name: 'Incomplete', items: [attr.incomplete]}])}"
+                            style-defaults='{"dataLabelPosition": "center"}'
+                            legend='{"position": "bottom"}'
+                            style="width:300px;height:300px">
+                  </oj-chart>
+                </td>
+              <!-- /ko -->
+            </tr>
+          </script>
+          	
+          <br/><br/>
+          <a href='https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html?component=table&demo=detailTable'>Detail Row with Tree data</a>	
+          
+          
+          
+        </div>
+      </div>
+
+
+            </div> 
+            </div>
+            
+            <div class="oj-flex">
+            <div class="oj-flex-item">
+                
+                second component goes here 
+            
+            </div> 
+            </div>
+        </div>
+</div>

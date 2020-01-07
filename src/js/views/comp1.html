@@ -1,0 +1,26 @@
+ <div id="sampleDemo" style="" class="demo-padding demo-container">
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+                  
+          <div id='treemap-container'>
+            <oj-treemap
+              id="treemap1"
+              animation-on-display="auto"
+              animation-on-data-change="auto"
+              data="[[treemapData]]"
+              style="max-width:800px;width:100%; height:600px;">
+              <template slot='nodeTemplate'>
+                <oj-treemap-node
+                  label='[[$current.data.label]]'
+                  value='[[$current.data.population]]'
+                  color='[[getColor($current.data.meanIncome)]]'
+                  short-desc='[[getShortDesc($current.data.label, $current.data.population, $current.data.meanIncome)]]'>
+                </oj-treemap-node>
+              </template>
+            </oj-treemap>
+          </div>  
+        </div>
+      </div>
+      <br/> <br/>
+      <a href='https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html?component=treemap&demo=default' target='_new'>
+      Treemap Component
+      </a>

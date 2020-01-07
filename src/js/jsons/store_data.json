@@ -1,0 +1,169 @@
+[
+    {
+      "id": 1,
+      "name": "Compute",
+      "short_desc": "Compute options range from VMs to GPUs to bare metal servers, and includes options for dense I/O workloads, high performance computing (HPC) and AMD EPYC processors.",
+      "image": "images/product_images/1.png",
+      "items": [
+        {
+          "id": 15,
+          "name": "Bare Metal Compute",
+          "short_desc": "Bare metal instances support applications requiring high core counts, large amounts of memory, and high memory bandwidth. Users can build cloud environments with significant performance improvements over other public clouds and on-premise data centers. Bare metal compute instances provide customers with exceptional isolation, visibility, and control.",
+          "price": 25.5,
+          "quantity": 73,
+          "quantity_shipped": 21,
+          "quantity_instock": 52,
+          "activity_id": 1,
+          "image": "images/product_images/2.png"
+        },
+        {
+          "id": 16,
+          "name": "Container Engine for Kubernetes",
+          "short_desc": "Container Engine for Kubernetes, which uses versions of Kubernetes certified as conformant by the Cloud Native Computing Foundation, is a fully managed, scalable, and highly available service used to deploy containerized applications to the cloud.",
+          "price": 30.29,
+          "quantity": 33,
+          "quantity_shipped": 25,
+          "quantity_instock": 8,
+          "activity_id": 1,
+          "image": "images/product_images/3.png"
+        },
+        {
+          "id": 17,
+          "name": "Container Registry",
+          "short_desc": "Container Registry is a single place for teams to manage Docker images, perform vulnerability analysis, and authentication to control access to a private container image registry. The registry can detect vulnerabilities or security issues before images are ever deployed to containers.",
+          "price": 38.5,
+          "quantity": 60,
+          "quantity_shipped": 43,
+          "quantity_instock": 17,
+          "activity_id": 1,
+          "image": "images/product_images/4.png"
+        },
+        {
+          "id": 18,
+          "name": "Virtual Machines and Bare Metal GPU",
+          "short_desc": "NVIDIA-based offerings provide a range of options for graphics-intensive workloads while also providing the high performance demanded by AI and machine-learning algorithms.",
+          "price": 26.94,
+          "quantity": 55,
+          "quantity_shipped": 43,
+          "quantity_instock": 12,
+          "activity_id": 1,
+          "image": "images/product_images/5.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Storage",
+      "short_desc": "From blazingly fast local SSD to the most durable and cost-effective archive, Oracle offers scalable and secure cloud storage options for your mission-critical data.",
+      "image": "images/product_images/6.png",
+      "items": [
+        {
+          "id": 10,
+          "name": "Local NVMe SSD",
+          "short_desc": "Oracle NVMe SSD is a storage drive that is designed with the Non-Volatile Memory Express (NVMe) high-performance controller interface to deliver industry-leading performance, low latency, and high quality of service.",
+          "price": 6.97,
+          "quantity": 30,
+          "quantity_shipped": 5,
+          "quantity_instock": 25,
+          "activity_id": 2,
+          "image": "images/product_images/7.png"
+        },
+        {
+          "id": 11,
+          "name": "Block Volumes",
+          "short_desc": "Oracle Cloud Infrastructure Block Volume service allows businesses to dynamically provision and manage block storage volumes. All NVMe-SSD based storage provides extremely high performance.",
+          "price": 39.99,
+          "quantity": 200,
+          "quantity_shipped": 179,
+          "quantity_instock": 21,
+          "activity_id": 2,
+          "image": "images/product_images/8.png"
+        },
+        {
+          "id": 12,
+          "name": "File Storage",
+          "short_desc": "Oracle Cloud Infrastructure File Storage is an enterprise-grade, cloud file storage service offering massive scalability, high availability, and extensive durability.",
+          "price": 20,
+          "quantity": 85,
+          "quantity_shipped": 12,
+          "quantity_instock": 73,
+          "activity_id": 2,
+          "image": "images/product_images/9.png"
+        },
+        {
+          "id": 13,
+          "name": "Object Storage",
+          "short_desc": "Oracle Cloud Infrastructure Object Storage provides reliable, durable, and highly available object storage.",
+          "price": 12.79,
+          "quantity": 35,
+          "quantity_shipped": 30,
+          "quantity_instock": 5,
+          "activity_id": 2,
+          "image": "images/product_images/10.png"
+        },
+        {
+          "id": 14,
+          "name": "Archive Storage",
+          "short_desc": "Oracle Cloud Infrastructure Archive Storage is used for retaining data that is accessed infrequently and requires long retention periods. All data at rest is encrypted.",
+          "price": 129.95,
+          "quantity": 49,
+          "quantity_shipped": 9,
+          "quantity_instock": 40,
+          "activity_id": 2,
+          "image": "images/product_images/6.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Networking, Connectivity, and Edge Services",
+      "short_desc": "Extend your IT infrastructure with highly customizable virtual cloud networks (VCN) and connectivity services offering predictable and consistent performance, isolation, and availability.",
+      "image": "images/product_images/1.png",
+      "items": [
+        {
+          "id": 6,
+          "name": "Virtual Cloud Network",
+          "short_desc": "Oracle Cloud Infrastructure Virtual Cloud Network (VCN) is a customizable and private network. As with your on-premise network, you have complete control. This includes assigning your own private IP address space, creating subnets, route tables, and configuring stateful firewalls. A single tenant can have multiple VCNs, thereby providing grouping and isolation of related resources.",
+          "price": 95,
+          "quantity": 34,
+          "quantity_shipped": 12,
+          "quantity_instock": 22,
+          "activity_id": 3,
+          "image": "images/product_images/3.png"
+        },
+        {
+          "id": 7,
+          "name": "Service Gateway",
+          "short_desc": "Oracle Cloud Infrastructure service gateway allows access to Oracle services within the region to protect your data from the internet. Oracle Cloud Infrastructure service gateway enables consumer-to-service private connections",
+          "price": 349.25,
+          "quantity": 85,
+          "quantity_shipped": 25,
+          "quantity_instock": 60,
+          "activity_id": 3,
+          "image": "images/product_images/5.png"
+        },
+        {
+          "id": 8,
+          "name": "Load Balancing",
+          "short_desc": "Oracle Cloud Infrastructure Load Balancing offers options to distribute workload processes across multiple resources in multitier and highly distributed application architectures to ensure availability.",
+          "price": 12.95,
+          "quantity": 100,
+          "quantity_shipped": 95,
+          "quantity_instock": 5,
+          "activity_id": 3,
+          "image": "images/product_images/6.png"
+        },
+        {
+          "id": 9,
+          "name": "FastConnect",
+          "short_desc": "Oracle Cloud Infrastructure FastConnect service enables businesses to extend their IT infrastructure with dedicated connectivity to Oracle Cloud Infrastructure resources. As an alternative to using the public internet, FastConnect offers predictable and consistent performance, and there are no charges for data egress.",
+          "price": 25.99,
+          "quantity": 75,
+          "quantity_shipped": 69,
+          "quantity_instock": 6,
+          "activity_id": 3,
+          "image": "images/product_images/8.png"
+        }
+      ]
+    } 
+  ]

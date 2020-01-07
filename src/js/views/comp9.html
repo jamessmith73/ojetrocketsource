@@ -1,0 +1,107 @@
+<style> 
+     .wrapper { 
+    background: url(../images/bg-texture.png) repeat #211e1c;
+    padding-top: 20px;
+     } 
+ </style>
+<div class="oj-hybrid-padding" style="background: url(../images/bg-texture.png) repeat #501C14;color:white">
+  <h2 style='color:white'>Oracle Cloud Infrastructure </h2>
+  <div class="oj-flex oj-flex-init">
+    <div class="oj-flex-item oj-md-4 oj-sm-12" style="background: url(../img/bg-texture.png) repeat #564F4B;color:#F8D9B0">
+      <h2 style="color: white;"> Cloud Service </h2>
+      <oj-list-view id="activitiesList" style="width:100%;height:500px;overflow-x:hidden" data="[[activityDataProvider]]"
+                    selection-mode="single" selection="{{selectedActivity}}" on-selection-changed="[[selectedActivityChanged]]"
+                    first-selected-item="{{firstSelectedActivity}}" scroll-policy="loadMoreOnScroll"
+                    scroll-policy-options.fetch-size="5">
+        <template slot="itemTemplate">
+          <div class="oj-flex" style="flex-wrap: nowrap">
+            <span class="demo-thumbnail oj-flex-item" ></span>
+            <div class="demo-content oj-flex-item">
+              <div>
+                <strong>
+                  <oj-bind-text value="[[$current.data.name]]"></oj-bind-text>
+                </strong>
+              </div>
+              <span class="demo-metadata">
+                <oj-bind-text value="[[$current.data.short_desc]]"></oj-bind-text>
+              </span>
+            </div>
+          </div>
+        </template>
+      </oj-list-view> 
+    </div>
+    <oj-bind-if test="[[activitySelected()]]">
+      <div class="oj-flex oj-flex-item oj-flex-items-pad oj-md-8 oj-sm-12" >
+        <div class="oj-flex-item oj-md-6 oj-sm-12" style="background: url(../images/bg-texture.png) repeat #1A5560;color:#501C14">
+          <h2 style="color: white;"> Products </h2>
+          <oj-list-view id="itemsList" style="width:100%;height:500px;overflow-x:hidden" data="[[itemsDataProvider]]"
+                        selection-mode="single" selection="{{selectedItem}}" on-selection-changed="[[selectedItemChanged]]"
+                        first-selected-item="{{firstSelectedItem}}" scroll-policy="loadMoreOnScroll"
+                        scroll-policy-options.fetch-size="5">
+            <template slot="itemTemplate">
+              <div class="oj-flex" style="flex-wrap: nowrap">
+                <span class="demo-thumbnail oj-flex-item" ></span>
+                <div class="demo-content oj-flex-item">
+                  <div>
+                    <strong>
+                      <oj-bind-text value="[[$current.data.name]]"></oj-bind-text>
+                    </strong>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </oj-list-view>
+        </div>
+        <oj-bind-if test="[[itemSelected()]]">
+          <div class="oj-flex-item oj-sm-12 oj-md-6" style="background: url(../images/bg-texture.png) repeat #302C29;color:white">
+            
+            <h2 style="color: white;"> Product Details </h2>
+
+            <hr style="margin-top:12px;">
+            <oj-avatar role="img" size="lg" :aria-label="[['product image for '+ itemData().name]]" :src="[[itemData().image]]"
+                        style="float:right;"> 
+            </oj-avatar>
+            <div id="itemName" style="font-size: 20px; font-weight: bolder;">
+              <oj-bind-text value="[[itemData().name]]"></oj-bind-text>
+            </div>
+            <div id="itemDesc" style="font-size: 14px; font-weight: 400; font-style:italic; margin-bottom: 10px;">
+              <oj-bind-text value="[[itemData().short_desc]]"></oj-bind-text>
+            </div>
+            <div id="itemPrice">
+              <oj-bind-text value="[['Price: ' + itemData().price + ' each']]"></oj-bind-text>
+            </div>
+            <div id="itemId">
+              <oj-bind-text value="[['Item Id: ' + itemData().id]]"></oj-bind-text>
+            </div>
+            <div>
+              <oj-chart type="pie" series="[[pieSeriesValue]]" animation-on-display="auto"
+                        animation-on-data-change="auto" hover-behavior="dim"
+                        legend.position="bottom"
+                        style="max-width: 400px;width:100%;height:350px;">
+              </oj-chart>
+            </div>
+          </div>
+        </oj-bind-if>
+        <oj-bind-if test="[[!itemSelected()]]">
+          <div class="oj-flex-item  oj-sm-12 oj-md-6">
+            <h4>Select an Item to see details</h4>
+          </div>
+        </oj-bind-if>
+      </div>
+    </oj-bind-if>
+    <oj-bind-if test="[[!activitySelected()]]">
+      <div class="oj-flex-item oj-sm-6">
+        <h4>Select an Activity to see Items</h4>
+      </div>
+    </oj-bind-if>
+
+     
+
+    
+  </div>
+</div>
+
+<br/><br/>
+<a href='https://docs.oracle.com/en/middleware/developer-tools/jet/tutorials/tutorials-ojdet/#ViewtheMasterandDetailLists'>
+Master Detail
+</a>

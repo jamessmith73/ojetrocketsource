@@ -1,0 +1,15 @@
+<div id="pagingControlDemo">
+    <table id="table" summary="Department List" aria-label="Departments Table"
+           data-bind="ojComponent: {component: 'ojTable', data: pagingDatasource, columns:
+            [{headerText: 'Department Id', field: 'DepartmentId'},
+             {headerText: 'Department Name', field: 'DepartmentName'},
+             {headerText: 'Location Id', field: 'LocationId'},
+             {headerText: 'Manager Id', field: 'ManagerId'}], 
+             rootAttributes: {'style':'width: 100%;'}}">
+    </table>
+    <div id="paging" data-bind="ojComponent: {component: 'ojPagingControl', data: pagingDatasource, pageSize: 15}">
+    </div>
+</div>
+
+<br/><br/> 
+<a href='https://www.oracle.com/webfolder/technetwork/jet-300/jetCookbook.html?component=pagingControl&demo=basicPagingTable' target='_new'>Paging Component</a>

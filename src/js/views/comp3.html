@@ -1,0 +1,58 @@
+  <div id="sampleDemo" style="" class="demo-padding demo-container">
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+                  
+          <div id="listviewContainer">
+          
+              <strong data-bind="text: action"></strong>
+          
+              <oj-list-view id="listview" style="width:100%;height:100vh-20px" data="[[dataSource]]">
+                  <template slot="itemTemplate" data-oj-as="item">
+                      <li class="oj-swipeactions-container">
+                          <oj-swipe-actions on-oj-action="[[handleAction]]">
+                              <div>
+                                  <div class="oj-flex">
+                                      <span class="oj-flex-item" style="font-weight:bold"><oj-bind-text value="[[item.data.from]]"></oj-bind-text></span>
+                                      <span class="oj-sm-flex-initial oj-flex-item oj-text-sm oj-text-secondary-color">Yesterday</span>
+                                  </div>
+                                  <span class="oj-text-sm oj-text-primary-color" style="font-weight:bold"><oj-bind-text value="[[item.data.title]]"></oj-bind-text></span>
+                                  <div style="line-height: 1.5em; height: 3em; overflow: hidden; text-overflow: ellipsis" class="oj-text-sm oj-text-secondary-color">
+                                      <oj-bind-text value="[[item.data.content]]"></oj-bind-text>
+                                  </div>
+                              </div>
+                              <template slot="start">
+                                  <oj-bind-if test='[[renderOptions(item.data) == "read"]]'>
+                                      <oj-option value="read">Read
+                                          <span class="demo-icon-font demo-library-icon-24" slot="startIcon"></span>
+                                      </oj-option>
+                                  </oj-bind-if>
+                                  <oj-bind-if test='[[renderOptions(item.data) == "archive"]]'>
+                                      <oj-option value="archive" class="oj-swipeactions-danger">Archive
+                                          <span class="demo-icon-font demo-library-icon-24" slot="startIcon"></span>
+                                      </oj-option>
+                                  </oj-bind-if>
+                              </template>
+                              <template slot="end">
+                                  <oj-option class="oj-swipeactions-neutral" value="more">More
+                                      <span class="demo-icon-font demo-library-icon-24" slot="startIcon"></span>
+                                  </oj-option>
+                                  <oj-option class="oj-swipeactions-attention" value="flag">Flag
+                                      <span class="demo-icon-font demo-library-icon-24" slot="startIcon"></span>
+                                  </oj-option>
+                                  <oj-option class="oj-swipeactions-danger oj-swipeactions-default" value="trash">Trash
+                                      <span class="demo-icon-font demo-library-icon-24" slot="startIcon"></span>
+                                  </oj-option>
+                              </template>
+                          </oj-swipe-actions>
+                      </li>
+                  </template>
+              </oj-list-view>
+          
+              <oj-menu id="moremenu" style="display:none" aria-label="More Actions" on-oj-action="[[handleMenuItemAction]]" open-options.display="sheet" open-options.launcher="listview">
+                  <oj-option id="reply">Reply</oj-option>
+                  <oj-option id="forward">Forward</oj-option>
+                  <oj-option id="move">Move...</oj-option>
+              </oj-menu>
+          </div> 
+          
+        </div>
+      </div>
